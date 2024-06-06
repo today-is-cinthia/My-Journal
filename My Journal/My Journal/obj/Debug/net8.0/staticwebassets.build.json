@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k+wHRADdWKOSxw2QrjPJI12soEhj0fT2clDfGRy7TR4=",
+  "Hash": "0EcYfcLOcBZnSjkpNMVhQsIz9UQFC7jw8L8lHuK8Sdg=",
   "Source": "My Journal",
   "BasePath": "_content/My Journal",
   "Mode": "Default",
@@ -6608,6 +6608,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\theme-assets\\css\\core\\mixins\\transitions.min.css"
+    },
+    {
+      "Identity": "C:\\My-Journal\\My Journal\\My Journal\\wwwroot\\theme-assets\\css\\create_style.css",
+      "SourceId": "My Journal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\My-Journal\\My Journal\\My Journal\\wwwroot\\",
+      "BasePath": "_content/My Journal",
+      "RelativePath": "theme-assets/css/create_style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\theme-assets\\css\\create_style.css"
     },
     {
       "Identity": "C:\\My-Journal\\My Journal\\My Journal\\wwwroot\\theme-assets\\css\\index_style.css",

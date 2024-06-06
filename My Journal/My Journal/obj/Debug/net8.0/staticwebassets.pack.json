@@ -1385,6 +1385,10 @@
       "PackagePath": "staticwebassets\\theme-assets\\css\\core\\mixins\\transitions.min.css"
     },
     {
+      "Id": "C:\\My-Journal\\My Journal\\My Journal\\wwwroot\\theme-assets\\css\\create_style.css",
+      "PackagePath": "staticwebassets\\theme-assets\\css\\create_style.css"
+    },
+    {
       "Id": "C:\\My-Journal\\My Journal\\My Journal\\wwwroot\\theme-assets\\css\\index_style.css",
       "PackagePath": "staticwebassets\\theme-assets\\css\\index_style.css"
     },
