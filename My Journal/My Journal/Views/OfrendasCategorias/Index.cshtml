@@ -1,0 +1,109 @@
+﻿@model IEnumerable<My_Journal.Models.OfrendaCategoria.OfrendasCategoria>
+
+@{
+    ViewData["Title"] = "Catálogo de Ofrendas";
+}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link href="/theme-assets/css/index_style.css" rel="stylesheet" />
+<a asp-controller="OfrendasCategorias" asp-action="Create" title="" class="btn btn btn-lg box-shadow--4dp">Crear registro</a>
+<div class="container" style="margin-top:30px;">
+    <div class="form-group row">
+
+        <div class="form-group col-lg-2">
+            <input type="hidden" id="startDate" name="startDate" class="form-control" />
+        </div>
+        <div class="form-group col-lg-2">
+            <input type="hidden" id="endDate" name="endDate" class="form-control" />
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+
+                    <a class="btn launch" asp-action="Edit" asp-route-id="@item.IdCatOfrenda"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a class="btn launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body ">
+                            <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+
+                            <div class="px-4 py-5">
+
+                                <h5 class="text-uppercase">Usuario1</h5>
+
+
+
+                                <h4 class="mt-5 theme-color mb-5">Estás a punto de eliminar un elemento!</h4>
+
+                                <span class="theme-color">Resumen</span>
+                                <div class="mb-3">
+                                    <hr class="new1">
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <small>Nombre</small>
+                                    <small>@Html.DisplayFor(modelItem => item.Nombre)</small>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <small>Descripción</small>
+                                    <small>@Html.DisplayFor(modelItem => item.Descripcion)</small>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <small>Estado</small>
+                                    <small>@Html.DisplayFor(modelItem => item.Estado)</small>
+                                </div>
+       
+
+                                <div class="form-group">
+                                    <button class="btn btn-danger">
+
+                                        <a style="color:white;" asp-action="Delete" asp asp-route-id="@item.IdCatOfrenda">Sí, quiero eliminar</a>
+                                    </button>
+                                    <button class="btn btn-secondary">
+
+                                        <a style="color:white;" asp-action="Index">Cancelar</a>
+                                    </button>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+}
+    </tbody>
+</table>

@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>My_Journal</RootNamespace>
     <ApplicationIcon>wwwroot\theme-assets\images\logo\logoicon.ico</ApplicationIcon>
-    <BaseOutputPath>C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\bin</BaseOutputPath>
+    <BaseOutputPath>C:\My-Journal\My Journal\My Journal\bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -119,12 +119,29 @@
                     </ul>
                 </li>
                 <li class="nav-item has-sub open">
+                    <a href="#"><i class="fa-solid fa-money-bills"></i><span class="menu-title" data-i18n="">Catálogos</span></a>
+                    <ul class="menu-content" style="">
+
+                        <li class="is-shown">
+                            <a class="menu-item" asp-controller="OfrendasCategorias" asp-action="index">Ofrendas</a>
+                        </li>
+
+                        <li class="is-shown">
+                            <a class="menu-item" asp-controller="EgresosVarios" asp-action="index">Egresos Varios</a>
+                        </li>
+                        <li class="is-shown">
+                            <a class="menu-item" asp-controller="IngresosVarios" asp-action="index">Ingresos Varios</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item has-sub open">
                     <a href="#"><i class="fa-solid fa-money-bills"></i><span class="menu-title" data-i18n="">Ingresos</span></a>
                     <ul class="menu-content" style="">
 
                         <li class="is-shown">
                             <a class="menu-item" asp-controller="Ofrendas" asp-action="index">Ofrendas</a>
                         </li>
+                        
                         <li class="is-shown">
                             <a class="menu-item" asp-controller="Diezmoes" asp-action="index">Diezmos</a>
                         </li>
@@ -193,7 +210,6 @@
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
                                             <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
                                             <li><a data-action="close"><i class="ft-x"></i></a></li>
                                         </ul>
                                     </div>
@@ -203,7 +219,6 @@
                                         <div class="container-fluid">
                                             <main role="main" class="pb-3">
                                                 <h1>@ViewBag.Title</h1>
-
                                                 @RenderBody()
                                             </main>
                                         </div>

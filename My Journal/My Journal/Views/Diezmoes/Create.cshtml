@@ -1,7 +1,7 @@
 ﻿@model My_Journal.Diezmo
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Diezmo";
 }
 
 <link href="/theme-assets/css/app-lite.css" rel="stylesheet" />
@@ -18,35 +18,43 @@
 <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/60f66db414.js" crossorigin="anonymous"></script>
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+    .btn-success {
+        background: #2a8358;
+    }
 
+    label {
+        font-weight: 500;
+    }
+</style>
 
 
 <form class="form" asp-action="Create">
     <div class="card-body">
         <div class="form-group row">
             <div class="col-lg-5">
-                <label>Descripción:</label>
-                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Enter a description" />
+                <label>Descripción</label>
+                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ej.  Diezmo culto dominical" />
                 <span class="form-text text-muted"></span>
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="col-lg-5">
-                <label>Cantidad:</label>
-                <input asp-for="Cantidad" type="number" step="0.01" min="1" class="form-control" placeholder="Enter something..." />
+                <label>Cantidad</label>
+                <input asp-for="Cantidad" type="number" step="0.01" min="1" class="form-control" placeholder="Ingrese una cantidad..." />
                 <span class="form-text text-muted"></span>
             </div>
             <div class="col-lg-6">
-                <label>Fecha:</label>
+                <label>Fecha</label>
                 <div class="input-group">
-                    <input asp-for="FechaDiezmo" type="datetime-local" class="form-control" placeholder="Enter your address" />
+                    <input asp-for="FechaDiezmo" type="datetime-local" class="form-control" />
                 </div>
                 <span class="form-text text-muted"></span>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <div class="col-lg-6">
-                        <button type="submit" value="Create" class="btn btn-primary mr-2">Create</button>
-                        <button asp-action="Index" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" value="Create" class="btn btn-success mr-2">Crear</button>
+                        <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
                     </div>
                 </div>
             </div>

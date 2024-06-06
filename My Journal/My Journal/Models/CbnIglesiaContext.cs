@@ -18,6 +18,7 @@ public partial class CbnIglesiaContext : DbContext
     {
     }
 
+    public virtual DbSet<OfrendasCategoria> OfrendasCategorias { get; set; }
     public virtual DbSet<Diezmo> Diezmos { get; set; }
 
     public virtual DbSet<DiezmoDetalle> DiezmoDetalles { get; set; }
@@ -58,6 +59,21 @@ public partial class CbnIglesiaContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<OfrendasCategoria>(entity =>
+        {
+            entity.HasKey(e => e.IdCatOfrenda).HasName("PK__OfrendasCategoria__3BB07412B1FBF2D1");
+
+            entity.ToTable("OfrendasCategoria", "ADM");
+
+            entity.Property(e => e.Descripcion).HasMaxLength(200);
+            entity.Property(e => e.FechaCreacion).HasColumnType("datetime");
+            entity.Property(e => e.FechaModifica).HasColumnType("datetime");
+
+            entity.HasOne(d => d.UsuarioCreacionNavigation).WithMany(p => p.OfrendasCategorias)
+                .HasForeignKey(d => d.UsuarioCreacion)
+                .HasConstraintName("FK__Diezmo__UsuarioC__4222D4EF");
+        });
+
         modelBuilder.Entity<Diezmo>(entity =>
         {
             entity.HasKey(e => e.IdDiezmo).HasName("PK__Diezmo__3BB07412B1FBF2D1");
