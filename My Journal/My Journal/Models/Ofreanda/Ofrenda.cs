@@ -42,3 +42,7 @@ public class OfrendaViewModel
     public OfrendaCategoria.OfrendasCategoria OfrendaCategoria { get; set; }
 }
 
+public class OfrendaListViewModel
+{
+    public List<OfrendaViewModel> Ofrendas { get; set; }
+}

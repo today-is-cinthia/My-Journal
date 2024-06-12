@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Catálogo de Ofrendas";
 }
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
 <!-- Font Awesome CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -12,47 +13,41 @@
     <div class="form-group row">
 
         <div class="form-group col-lg-2">
-            <input type="hidden" id="startDate" name="startDate" class="form-control" />
+            <label for="startDate">Desde</label>
+            <input type="datetime-local" id="startDate" name="startDate" class="form-control" />
         </div>
         <div class="form-group col-lg-2">
-            <input type="hidden" id="endDate" name="endDate" class="form-control" />
+            <label for="endDate">Hasta</label>
+            <input type="datetime-local" id="endDate" name="endDate" class="form-control" />
         </div>
     </div>
 </div>
-<br />
-<table class="table">
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
+
+            <th>Nombre</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th>Estado</th>
             <th></th>
+
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                <td>
 
                     <a class="btn launch" asp-action="Edit" asp-route-id="@item.IdCatOfrenda"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                     <a class="btn launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-trash" aria-hidden="true"></i></a>
-            </td>
-        </tr>
+                </td>
+            </tr>
             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -81,10 +76,10 @@
                                     <small>@Html.DisplayFor(modelItem => item.Descripcion)</small>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <small>Estado</small>
+                                    <small>Cantidad</small>
                                     <small>@Html.DisplayFor(modelItem => item.Estado)</small>
                                 </div>
-       
+                               
 
                                 <div class="form-group">
                                     <button class="btn btn-danger">
@@ -104,6 +99,25 @@
                     </div>
                 </div>
             </div>
-}
+        }
     </tbody>
+
 </table>
+</div
+<br />
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<!-- Data Table JS -->
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
+<!-- Script JS -->
+<!-- Script JS para la tabla
+       Función DataTable provee la tabla, filtros, paginación, barra de búsqueda
+-->
+<script src="/theme-assets/js/Datatable.js">
+</script>
+
+

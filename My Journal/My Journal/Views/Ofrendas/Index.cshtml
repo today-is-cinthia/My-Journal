@@ -43,7 +43,9 @@
 
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.OfrendaCategoria.Nombre)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Ofrenda.Descripcion)</td>
+                    <td>@Html.DisplayFor(
+                        
+                        Item => item.Ofrenda.Descripcion)</td>
                     <td>@Html.DisplayFor(modelItem => item.Ofrenda.Cantidad)</td>
                     <td>@Html.DisplayFor(modelItem => item.Divisa.CodDivisa)</td>
                     <td>@Html.DisplayFor(modelItem => item.Ofrenda.TasaCambio)</td>
@@ -138,35 +140,4 @@
 <!-- Script JS para la tabla
        Función DataTable provee la tabla, filtros, paginación, barra de búsqueda
 -->
-<script>
-
-    $('#example').DataTable({
-        // Atributo para hacer la tabla responsive
-        responsive: true,
-        // Agregar scroll a la tabla para que quepa en el contenedor
-        "sScrollX": "100%",
-        "sScrollXInner": "110%",
-        "bScrollCollapse": true
-    });
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // Obtener la fecha actual
-        const today = new Date().toISOString().split('T')[0];
-
-        // Asignar la fecha actual a los campos de entrada
-        document.getElementById('startDate').value = today;
-        document.getElementById('endDate').value = today;
-    });
-
-    function submitDates() {
-        const startDate = document.getElementById('startDate').value;
-        const endDate = document.getElementById('endDate').value;
-
-        alert(`Start Date: ${startDate}\nEnd Date: ${endDate}`);
-
-        // Aquí puedes añadir lógica para manejar los datos como desees
-    }
- </script>
-
-
-
+<script src="/theme-assets/js/Datatable.js"></script>

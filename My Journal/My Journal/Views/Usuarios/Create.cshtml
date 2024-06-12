@@ -1,8 +1,9 @@
 ﻿@model My_Journal.Usuario
 @{
-    ViewData["Title"] = "Create User";
+    ViewData["Title"] = "Crear Usuario";
 }
 @*#696cff*@
+
 
 <link href="/theme-assets/css/app-lite.css" rel="stylesheet" />
 <link href="/theme-assets/css/bootstrap.css" rel="stylesheet" />
@@ -18,35 +19,39 @@
 <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/60f66db414.js" crossorigin="anonymous"></script>
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="/theme-assets/css/create_style.css" rel="stylesheet" />
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 
 
 <form class="form" asp-action="Create">
     <div class="card-body">
         <div class="form-group row">
             <div class="col-lg-5">
-                <label>Nombres:</label>
-                <input asp-for="Nombres" type="text" class="form-control" placeholder="Enter full name" />
+                <label>Nombres</label>
+                <input asp-for="Nombres" type="text" class="form-control" placeholder="Ingrese sus nombres" />
                 <span class="form-text text-muted"></span>
                 <span asp-validation-for="Nombres" class="text-danger"></span>
             </div>
             <div class="col-lg-5">
-                <label>Apellidos:</label>
-                <input asp-for="Apellidos" type="text" class="form-control" placeholder="Enter last name" />
+                <label>Apellidos</label>
+                <input asp-for="Apellidos" type="text" class="form-control" placeholder="Ingrese sus apellidos" />
                 <span class="form-text text-muted"></span>
             </div>
             <div class="col-lg-6">
-                <label>Dirección:</label>
+                <label>Dirección</label>
                 <div class="input-group">
-                    <input asp-for="Direccion" type="text" class="form-control" placeholder="Enter your address" />
+                    <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingrese su dirección" />
                     <div class="input-group-append"><span class="input-group-text"><i class="la la-map-marker"></i></span></div>
                 </div>
                 <span class="form-text text-muted"></span>
             </div>
             <div class="col-lg-5">
-                <label>Teléfono:</label>
+                <label>Teléfono</label>
                 <div class="input-group">
-                    <input asp-for="Telefono" type="tel" class="form-control" placeholder="Provide a contact number" />
+                    <input asp-for="Telefono" type="tel" class="form-control" placeholder="Provea un número de contacto" />
                     <div class="input-group-append"><span class="input-group-text"><i class="la la-phone"></i></span></div>
                 </div>
                 <span class="form-text text-muted"></span>
@@ -54,17 +59,17 @@
         </div>
         <div class="form-group row">
             <div class="col-lg-4">
-                <label>Usuario:</label>
+                <label>Usuario</label>
                 <div class="input-group">
-                    <input asp-for="Usuario1" type="text" class="form-control" placeholder="Create a new user" />
+                    <input asp-for="Usuario1" type="text" class="form-control" placeholder="Cree un nombre de usuario" />
                     <div class="input-group-append"><span class="input-group-text"><i class="la la-user"></i></span></div>
                 </div>
                 <span class="form-text text-muted"></span>
             </div>
             <div class="col-lg-4">
-                <label>Contraseña:</label>
+                <label>Contraseña</label>
                 <div class="input-group">
-                    <input asp-for="Clave" type="password" class="form-control" placeholder="Create a new password" />
+                    <input asp-for="Clave" type="password" class="form-control" placeholder="Cree una contraseña" />
                     <div class="input-group-append"><span class="input-group-text"><i class="la la-key"></i></span></div>
                 </div>
                 <span class="form-text text-muted"></span>
@@ -82,8 +87,8 @@
     <div class="card-footer">
         <div class="row">
             <div class="col-lg-6">
-                <button type="submit" value="Create" class="btn btn-primary mr-2">Create</button>
-                <button asp-action="Index" class="btn btn-secondary">Cancel</button>
+                <button type="submit" value="Create" class="btn btn-success mr-2">Guardar</button>
+                <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
             </div>
         </div>
     </div>

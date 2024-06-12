@@ -19,7 +19,7 @@ public partial class Miembro
 
     public DateTime? FechaBautismo { get; set; }
 
-    public bool Estado { get; set; }
+    public int Estado { get; set; }
 
     public int? UsuarioCreacion { get; set; }
 

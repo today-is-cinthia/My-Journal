@@ -1,7 +1,7 @@
 ﻿@model My_Journal.EgresosVario
 
 @{
-    ViewData["Title"] = "Create Receipt Egresos";
+    ViewData["Title"] = "Crear Egresos";
 }
 
 <link href="/theme-assets/css/app-lite.css" rel="stylesheet" />
@@ -25,18 +25,18 @@
     <div class="card-body">
         <div class="form-group row">
             <div class="col-lg-5">
-                <label>Descripción:</label>
-                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Enter a description" />
+                <label>Descripción</label>
+                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ej. Compra de escobas" />
                 <span class="form-text text-muted"></span>
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="col-lg-5">
-                <label>Cantidad:</label>
-                <input asp-for="Cantidad" type="number" step="0.01" min="1" class="form-control" placeholder="Enter something..." />
+                <label>Cantidad</label>
+                <input asp-for="Cantidad" type="number" step="0.01" min="1" class="form-control" placeholder="Ingrese una cantidad..." />
                 <span class="form-text text-muted"></span>
             </div>
             <div class="col-lg-6">
-                <label>Fecha:</label>
+                <label>Fecha</label>
                 <div class="input-group">
                     <input asp-for="Fecha" type="datetime-local" class="form-control" placeholder="" />
                 </div>
@@ -45,8 +45,8 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col-lg-6">
-                        <button type="submit" value="Create" class="btn btn-primary mr-2">Create</button>
-                        <button asp-action="Index" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" value="Create" class="btn btn-primary mr-2">Crear</button>
+                        <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
                     </div>
                 </div>
             </div>

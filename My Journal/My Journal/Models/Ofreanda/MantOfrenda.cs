@@ -10,7 +10,7 @@ namespace My_Journal.Models.Ofrenda
         public MantOfrenda()
         {
         }
-        public string Insertar(OfrendaViewModel ofrendaViewModel)
+        public string Insertar(Ofrenda ofrenda)
         {
             string valstring = string.Empty;
             string cnn = Utilidad.getConexString();
@@ -21,12 +21,12 @@ namespace My_Journal.Models.Ofrenda
                     using (SqlCommand sqlCommand = new SqlCommand("[IGLESIA].pcdSetOfrenda", connection))
                     {
                         sqlCommand.CommandType = CommandType.StoredProcedure;
-                        sqlCommand.Parameters.AddWithValue("@IdCategoria", ofrendaViewModel.OfrendaCategoria.IdCatOfrenda);
-                        sqlCommand.Parameters.AddWithValue("@Descripcion", ofrendaViewModel.Ofrenda.Descripcion);
-                        sqlCommand.Parameters.AddWithValue("@Cantidad", ofrendaViewModel.Ofrenda.Cantidad);
-                        sqlCommand.Parameters.AddWithValue("@Fecha", ofrendaViewModel.Ofrenda.Fecha);
-                        sqlCommand.Parameters.AddWithValue("@IdDivisa", ofrendaViewModel.Divisa.IdDivisa);
-                        sqlCommand.Parameters.AddWithValue("@TasaCambio", ofrendaViewModel.Ofrenda.TasaCambio);
+                        sqlCommand.Parameters.AddWithValue("@IdCategoria", ofrenda.IdCatOfrenda);
+                        sqlCommand.Parameters.AddWithValue("@Descripcion", ofrenda.Descripcion);
+                        sqlCommand.Parameters.AddWithValue("@Cantidad", ofrenda.Cantidad);
+                        sqlCommand.Parameters.AddWithValue("@Fecha", ofrenda.Fecha);
+                        sqlCommand.Parameters.AddWithValue("@IdDivisa", ofrenda.Divisa);
+                        sqlCommand.Parameters.AddWithValue("@TasaCambio", ofrenda.TasaCambio);
                         sqlCommand.Parameters.AddWithValue("@IdUsuario", 1);
 
                         connection.Open();
