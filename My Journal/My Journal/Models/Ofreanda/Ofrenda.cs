@@ -29,6 +29,8 @@ public class Ofrenda
 
     public DateTime? FechaModifica { get; set; }
 
+    public int Estado { get; set; }
+
     public virtual Usuario? UsuarioCreacionNavigation { get; set; }
 
 }
@@ -40,9 +42,4 @@ public class OfrendaViewModel
     public Divisa.Divisa Divisa { get; set; }
 
     public OfrendaCategoria.OfrendasCategoria OfrendaCategoria { get; set; }
-}
-
-public class OfrendaListViewModel
-{
-    public List<OfrendaViewModel> Ofrendas { get; set; }
 }

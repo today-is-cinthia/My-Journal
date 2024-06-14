@@ -9,12 +9,6 @@ namespace My_Journal.Controllers
 {
     public class OfrendasController : Controller
     {
-        private readonly CbnIglesiaContext _context;
-
-        public OfrendasController(CbnIglesiaContext context)
-        {
-            _context = context;
-        }
 
         // GET: Ofrendas
         public async Task<IActionResult> Index()
@@ -30,25 +24,6 @@ namespace My_Journal.Controllers
                 // Manejar la excepción según sea necesario
                 return View(new List<OfrendaViewModel>());
             }
-        }
-
-        // GET: Ofrendas/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var ofrenda = await _context.Ofrendas
-                .Include(o => o.UsuarioCreacionNavigation)
-                .FirstOrDefaultAsync(m => m.IdOfrenda == id);
-            if (ofrenda == null)
-            {
-                return NotFound();
-            }
-
-            return View(ofrenda);
         }
 
         // GET: Ofrendas/Create
@@ -81,34 +56,8 @@ namespace My_Journal.Controllers
             }
         }
 
-        // POST: Ofrendas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        //public ActionResult Create(OfrendaViewModel ofrendaViewModel)
-        //{
-        //    try
-        //    {
-        //        MantOfrendaCategoria mant = new MantOfrendaCategoria();
-        //        var categorias = mant.Getlistado();
-        //        var categoriasSelectList = new SelectList(categorias, "IdCatOfrenda", "Nombre");
-        //        ViewBag.ListadoOfrendasCategorias = categoriasSelectList;
-
-        //        new MantOfrenda().Insertar(ofrendaViewModel);
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Manejar la excepción según sea necesario
-        //        return View(ofrendaViewModel);
-        //    }
-        //}
-
-        [HttpPost]
-        [HttpPost]
-        public ActionResult Create(List<int> OfrendaCategoria,List<string> Descripcion,List<decimal> Cantidad,List<int> Divisa,List<decimal> TasaCambio,List<DateTime> Fecha)
+        public ActionResult Create(List<int> OfrendaCategoria, List<string> Descripcion, List<decimal> Cantidad, List<int> Divisa, List<decimal> TasaCambio, List<DateTime> Fecha)
         {
             try
             {
@@ -167,122 +116,113 @@ namespace My_Journal.Controllers
             }
         }
 
-
-
-
         // GET: Ofrendas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var ofrenda = await _context.Ofrendas.FindAsync(id);
-            if (ofrenda == null)
+            var viewModel = new MantOfrenda().GetOfrenda(id.Value);
+
+            MantOfrendaCategoria mant = new MantOfrendaCategoria();
+            var categorias = mant.Getlistado();
+            var categoriasSelectList = new SelectList(categorias, "IdCatOfrenda", "Nombre", viewModel.Ofrenda.IdCatOfrenda); // Selecciona el valor actual
+
+            MantDivisa mantDivisa = new MantDivisa();
+            var divisa = mantDivisa.Getlistado();
+            var divisaSelectList = new SelectList(divisa, "IdDivisa", "CodDivisa", viewModel.Ofrenda.Divisa); // Selecciona el valor actual
+
+            ViewBag.ListadoOfrendasCategorias = categoriasSelectList;
+            ViewBag.ListadoDivisa = divisaSelectList;
+
+            if (viewModel == null)
             {
                 return NotFound();
             }
-            ViewData["UsuarioCreacion"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", ofrenda.UsuarioCreacion);
-            return View(ofrenda);
+
+            return View(viewModel);
         }
 
         // POST: Ofrendas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdOfrenda,Cantidad,Descripcion,Fecha,UsuarioCreacion,FechaCreacion,UsuarioModifica,FechaModifica")] Ofrenda ofrenda)
+        public ActionResult Editar(OfrendaViewModel viewModel)
         {
-            if (id != ofrenda.IdOfrenda)
+            try
             {
-                return NotFound();
-            }
+                MantOfrenda mant = new MantOfrenda();
+                var ofrenda = mant.Editar(viewModel);
 
-            if (ModelState.IsValid)
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
             {
-                try
-                {
-                    _context.Update(ofrenda);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OfrendaExists(ofrenda.IdOfrenda))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                // Manejar la excepción según sea necesario
+                return View(viewModel);
             }
-            ViewData["UsuarioCreacion"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", ofrenda.UsuarioCreacion);
-            return View(ofrenda);
-        }
-
-        // GET: Ofrendas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var ofrenda = await _context.Ofrendas
-                .Include(o => o.UsuarioCreacionNavigation)
-                .FirstOrDefaultAsync(m => m.IdOfrenda == id);
-            if (ofrenda == null)
-            {
-                return NotFound();
-            }
-
-            return View(ofrenda);
-        }
-
-        // POST: Ofrendas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var ofrenda = await _context.Ofrendas.FindAsync(id);
-            if (ofrenda != null)
-            {
-                _context.Ofrendas.Remove(ofrenda);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool OfrendaExists(int id)
-        {
-            return _context.Ofrendas.Any(e => e.IdOfrenda == id);
-        }
-
-        //public ActionResult ListadoOfrendasCategorias()
-        //{
-        //    MantOfrendaCategoria mant = new MantOfrendaCategoria();
-        //    return PartialView("~/Views/Ofrendas/Create.chtml", mant.Getlistado());
-        //}
-
-        //public List<OfrendasCategoria> ListadoOfrendasCategorias()
-        //{
-        //    MantOfrendaCategoria mant = new MantOfrendaCategoria();
-        //    var categorias = mant.Getlistado();
-
-        //    // Crear SelectList
-        //    var categoriasSelectList = new SelectList(categorias, "IdCatOfrenda", "Nombre");
-        //    ViewBag.ListadoOfrendasCategorias = categoriasSelectList;
-
-        //    return View("~/Views/Ofrendas/Create.cshtml");
-        //}
-        public ActionResult ListadoDivisas()
-        {
-            MantDivisa mant = new MantDivisa();
-            return PartialView("~/Views/Ofrendas/Create.cshtml", mant.Getlistado());
         }
     }
+
+
+    // GET: Ofrendas/Delete/5
+    //public async Task<IActionResult> Delete(int? id)
+    //{
+    //    if (id == null)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    var ofrenda = await _context.Ofrendas
+    //        .Include(o => o.UsuarioCreacionNavigation)
+    //        .FirstOrDefaultAsync(m => m.IdOfrenda == id);
+    //    if (ofrenda == null)
+    //    {
+    //        return NotFound();
+    //    }
+
+    //    return View(ofrenda);
+    //}
+
+    // POST: Ofrendas/Delete/5
+    //[HttpPost, ActionName("Delete")]
+    //[ValidateAntiForgeryToken]
+    ////public async Task<IActionResult> DeleteConfirmed(int id)
+    //{
+    //    var ofrenda = await _context.Ofrendas.FindAsync(id);
+    //    if (ofrenda != null)
+    //    {
+    //        _context.Ofrendas.Remove(ofrenda);
+    //    }
+
+    //    await _context.SaveChangesAsync();
+    //    return RedirectToAction(nameof(Index));
+    //}
+
+    //private bool OfrendaExists(int id)
+    //{
+    //    return _context.Ofrendas.Any(e => e.IdOfrenda == id);
+    //}
+
+    //public ActionResult ListadoOfrendasCategorias()
+    //{
+    //    MantOfrendaCategoria mant = new MantOfrendaCategoria();
+    //    return PartialView("~/Views/Ofrendas/Create.chtml", mant.Getlistado());
+    //}
+
+    //public List<OfrendasCategoria> ListadoOfrendasCategorias()
+    //{
+    //    MantOfrendaCategoria mant = new MantOfrendaCategoria();
+    //    var categorias = mant.Getlistado();
+
+    //    // Crear SelectList
+    //    var categoriasSelectList = new SelectList(categorias, "IdCatOfrenda", "Nombre");
+    //    ViewBag.ListadoOfrendasCategorias = categoriasSelectList;
+
+    //    return View("~/Views/Ofrendas/Create.cshtml");
+    //}
+    //public ActionResult ListadoDivisas()
+    //{
+    //    MantDivisa mant = new MantDivisa();
+    //    return PartialView("~/Views/Ofrendas/Create.cshtml", mant.Getlistado());
+    //}
 }

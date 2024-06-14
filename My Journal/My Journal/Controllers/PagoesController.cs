@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using My_Journal;
+using My_Journal.Models.Pagos;
 
 namespace My_Journal.Controllers
 {
@@ -22,7 +22,7 @@ namespace My_Journal.Controllers
         public async Task<IActionResult> Index()
         {
             var cbnIglesiaContext = _context.Pagos.Include(p => p.UsuarioCreacionNavigation);
-            return View(await cbnIglesiaContext.ToListAsync());
+            return View(new List<PagosViewModel>());
         }
 
         // GET: Pagoes/Details/5

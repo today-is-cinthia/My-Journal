@@ -1,9 +1,10 @@
-﻿@model My_Journal.Models.Ofrenda.Ofrenda
+﻿@model My_Journal.Models.Ofrenda.OfrendaViewModel
 
 @{
-    ViewData["Title"] = "Editar Registro";
+    ViewData["Title"] = "Editar Ofrenda";
 }
 
+<!-- Enlaces CSS -->
 <link href="/theme-assets/css/app-lite.css" rel="stylesheet" />
 <link href="/theme-assets/css/bootstrap.css" rel="stylesheet" />
 <link href="/theme-assets/css/bootstrap-extended.css" rel="stylesheet" />
@@ -27,45 +28,66 @@
     label {
         font-weight: 500;
     }
-
 </style>
 
+<!-- Formulario de Edición -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="form" asp-action="Editar" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Ofrenda.IdOfrenda" />
 
-<form class="form" asp-action="Edit">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="IdOfrenda" />
-    <div class="form-group row">
-        <div class="col-lg-5">
-            <label class="control-label">Descripción</label>
-            <input asp-for="Descripcion" class="form-control" />
-            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                <div class="form-group row">
+                    <div class="form-group col-lg-3" style="overflow:visible">
+                        @Html.LabelFor(model => model.OfrendaCategoria.IdCatOfrenda, "Categoría", htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownListFor(model => model.OfrendaCategoria.IdCatOfrenda, (SelectList)ViewBag.ListadoOfrendasCategorias, "Seleccione una categoría", htmlAttributes: new { @class = "form-control", @id = "categoria" })
+                    </div>
+
+                    <div class="col-lg-5">
+                        <label class="control-label">Descripción</label>
+                        <input asp-for="Ofrenda.Descripcion" class="form-control" />
+                        <span asp-validation-for="Ofrenda.Descripcion" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Cantidad</label>
+                        <input asp-for="Ofrenda.Cantidad" type="number" step="0.0000001" min="1" class="form-control" placeholder="Ingrese algo..." id="cantidad" />
+                        <span class="form-text text-muted"></span>
+                    </div>
+
+                    <div class="form-group col-lg-3" style="overflow:visible">
+                        @Html.LabelFor(model => model.Divisa.IdDivisa, "Divisa", htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownListFor(model => model.Divisa.IdDivisa, (SelectList)ViewBag.ListadoDivisa, "Seleccione la Divisa", htmlAttributes: new { @class = "form-control", @id = "divisa" })
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Tasa de Cambio</label>
+                        <input asp-for="Ofrenda.TasaCambio" type="number" step="0.0000001" min="1" class="form-control" placeholder="Ingrese algo..." id="tasaCambio" />
+                        <span class="form-text text-muted"></span>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Fecha</label>
+                        <div class="input-group">
+                            <input asp-for="Ofrenda.Fecha" type="datetime-local" class="form-control" />
+                        </div>
+                        <span class="form-text text-muted"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input style="margin:15px;" type="submit" value="Guardar" class="btn btn-success" />
+                    <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </form>
         </div>
-        <div class="col-lg-5">
-            <label>Cantidad</label>
-            <input asp-for="Cantidad" type="text" class="form-control" />
-            <span class="form-text text-muted"></span>
-        </div>
-
-
     </div>
-    <div class="form-group row">
-        <div class="col-lg-4">
-            <label>Fecha</label>
-            <div class="input-group">
-                <input asp-for="Fecha" type="datetime-local" class="form-control" />
-            </div>
-            <span class="form-text text-muted"></span>
-        </div>
-    <div class="form-group">
+</div>
 
-        <input style="margin:15px;" type="submit" value="Guardar" class="btn btn-primary" />
-        <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
-
-    </div>
-</form>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-

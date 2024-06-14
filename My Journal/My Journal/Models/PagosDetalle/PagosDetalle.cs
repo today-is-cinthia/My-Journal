@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using My_Journal.Models.Divisa;
+using My_Journal.Models.Pagos;
 
-namespace My_Journal;
+namespace My_Journal.Models.PagosDetalle;
 
 public partial class PagosDetalle
 {
@@ -26,9 +27,9 @@ public partial class PagosDetalle
 
     public DateTime? FechaModifica { get; set; }
 
-    public virtual Divisa? DivisaNavigation { get; set; }
+    public virtual Divisa.Divisa? DivisaNavigation { get; set; }
 
-    public virtual PagosCategoria IdCategoriaNavigation { get; set; } = null!;
+    public virtual PagosCategoria.PagosCategoria IdCategoriaNavigation { get; set; } = null!;
 
     public virtual Pago IdPagoNavigation { get; set; } = null!;
 

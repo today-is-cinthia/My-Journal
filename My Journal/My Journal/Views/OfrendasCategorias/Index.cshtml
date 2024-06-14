@@ -8,17 +8,15 @@
 <!-- Font Awesome CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link href="/theme-assets/css/index_style.css" rel="stylesheet" />
-<a asp-controller="OfrendasCategorias" asp-action="Create" title="" class="btn btn btn-lg box-shadow--4dp">Crear registro</a>
+<a asp-controller="OfrendasCategorias" asp-action="Create" title="" class="btn btn btn-lg box-shadow--4dp">Crear registro</a> <br />
 <div class="container" style="margin-top:30px;">
     <div class="form-group row">
 
         <div class="form-group col-lg-2">
-            <label for="startDate">Desde</label>
-            <input type="datetime-local" id="startDate" name="startDate" class="form-control" />
+            <input type="hidden" id="startDate" name="startDate" class="form-control" />
         </div>
         <div class="form-group col-lg-2">
-            <label for="endDate">Hasta</label>
-            <input type="datetime-local" id="endDate" name="endDate" class="form-control" />
+            <input type="hidden" id="endDate" name="endDate" class="form-control" />
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-﻿@model My_Journal.Pago
+﻿@model IEnumerable<My_Journal.Models.Pagos.PagosViewModel>
 
 @{
     ViewData["Title"] = "Crear Pago Básico";
@@ -21,12 +21,12 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <link href="/theme-assets/css/create_style.css" rel="stylesheet" />
-<form class="form" asp-action="Create">
+@* <form class="form" asp-action="Create">
     <div class="card-body">
         <div class="form-group row">
             <div class="col-lg-5">
                 <label>Descripción</label>
-                <input asp-for="Descripcion" type="text" class="form-control" placeholder="Ingrese una descripción" />
+                <input asp-for="" type="text" class="form-control" placeholder="Ingrese una descripción" />
                 <span class="form-text text-muted"></span>
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-</form>
+</form> *@
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

@@ -19,5 +19,5 @@ public partial class Divisa
 
     public virtual ICollection<IngresosVariosDetalle> IngresosVariosDetalles { get; set; } = new List<IngresosVariosDetalle>();
 
-    public virtual ICollection<PagosDetalle> PagosDetalles { get; set; } = new List<PagosDetalle>();
+    public virtual ICollection<PagosDetalle.PagosDetalle> PagosDetalles { get; set; } = new List<PagosDetalle.PagosDetalle>();
 }

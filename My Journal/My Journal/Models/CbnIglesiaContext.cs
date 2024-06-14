@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using My_Journal.Models.Divisa;
 using My_Journal.Models.Ofrenda;
 using My_Journal.Models.OfrendaCategoria;
+using My_Journal.Models.Pagos;
+using My_Journal.Models.PagosCategoria;
+using My_Journal.Models.PagosDetalle;
 
 namespace My_Journal;
 

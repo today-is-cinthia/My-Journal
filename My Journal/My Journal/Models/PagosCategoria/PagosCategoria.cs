@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using My_Journal.Models.PagosDetalle;
 
-namespace My_Journal;
+namespace My_Journal.Models.PagosCategoria;
 
 public partial class PagosCategoria
 {
@@ -21,7 +22,7 @@ public partial class PagosCategoria
 
     public DateTime? FechaModifica { get; set; }
 
-    public virtual ICollection<PagosDetalle> PagosDetalles { get; set; } = new List<PagosDetalle>();
+    public virtual ICollection<PagosDetalle.PagosDetalle> PagosDetalles { get; set; } = new List<PagosDetalle.PagosDetalle>();
 
     public virtual Usuario? UsuarioCreacionNavigation { get; set; }
 }

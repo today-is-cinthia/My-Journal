@@ -1,4 +1,4 @@
-﻿@model My_Journal.Pago
+﻿@model IEnumerable<My_Journal.Models.Pagos.PagosViewModel>
 
 @{
     ViewData["Title"] = "Editar Pago Básico";
@@ -31,9 +31,9 @@
 
 
 
-<form class="form" asp-action="Edit">
+@* <form class="form" asp-action="Edit">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="IdPago" />
+    <input type="hidden" asp-for="Pagos.IdPago" />
     <div class="form-group row">
         <div class="col-lg-5">
             <label class="control-label">Descripción</label>
@@ -62,7 +62,7 @@
             <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
 
         </div>
-</form>
+</form> *@
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
