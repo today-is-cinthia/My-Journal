@@ -161,6 +161,22 @@ namespace My_Journal.Controllers
                 return View(viewModel);
             }
         }
+
+        public ActionResult Anular(int id)
+        {
+            try
+            {
+                MantOfrenda mant = new MantOfrenda();
+                mant.AnularOfrenda(id); // Asegúrate de que este método cambia el estado a cero
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción según sea necesario
+                return Json(new { success = false, error = ex.Message });
+            }
+        }
     }
 
 

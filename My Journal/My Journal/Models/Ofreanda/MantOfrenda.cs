@@ -208,5 +208,39 @@ namespace My_Journal.Models.Ofrenda
             }
             return valstring;
         }
+
+        public String AnularOfrenda(int id)
+        {
+            string valstring = string.Empty;
+            string cnn = Utilidad.getConexString();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(cnn))
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand("[IGLESIA].pcdGetAnularOfrenda", connection))
+                    {
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@IdOfrenda", id);
+                        connection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        connection.Close();
+                        //if (Cod.Value.ToString() != string.Empty)
+                        //{
+                        //    var _resource = new ResourceManager(typeof(strings));
+                        //    string res = _resource.GetString(Cod.Value.ToString());
+                        //    valstring = res;
+                        //}
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                valstring = "ERROR";
+                //Utilidad.Ubicacion = clase + System.Reflection.MethodBase.GetCurrentMethod().Name;
+                //Utilidad.GuardarLog(ex.Message, Utilidad.objectToString(registro));
+            }
+            return valstring;
+        }
+
     }
 }
