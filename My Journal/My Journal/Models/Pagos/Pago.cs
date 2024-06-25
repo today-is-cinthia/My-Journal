@@ -32,4 +32,5 @@ public class PagosViewModel
     public PagosCategoria.PagosCategoria PagosCategoria { get; set; }
 
     public PagosDetalle.PagosDetalle PagosDetalle { get; set; }
+    public Divisa.Divisa Divisa { get; set; }
 }

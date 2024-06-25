@@ -1037,14 +1037,6 @@ C:\My-Journal\My Journal\My Journal\obj\Debug\net8.0\refint\My Journal.dll
 C:\My-Journal\My Journal\My Journal\obj\Debug\net8.0\My Journal.pdb
 C:\My-Journal\My Journal\My Journal\obj\Debug\net8.0\My Journal.genruntimeconfig.cache
 C:\My-Journal\My Journal\My Journal\obj\Debug\net8.0\ref\My Journal.dll
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\appsettings.Development.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\appsettings.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.staticwebassets.runtime.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.exe
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.deps.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.runtimeconfig.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.dll
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.pdb
 C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\My Journal.csproj.AssemblyReference.cache
 C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\My_Journal.Properties.Resources.resources
 C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\My Journal.csproj.GenerateResource.cache
@@ -1072,11 +1064,6 @@ C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\r
 C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\My Journal.pdb
 C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\My Journal.genruntimeconfig.cache
 C:\Users\MYender\Desktop\My Journal web\My Journal\My Journal\obj\Debug\net8.0\ref\My Journal.dll
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\appsettings.Development.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\appsettings.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\My Journal.deps.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\My Journal.runtimeconfig.json
-C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\My Journal.staticwebassets.runtime.json
 C:\Users\cinth\Source\Repos\My-Journal-web\My Journal\My Journal\obj\Debug\net8.0\My Journal.csproj.Up2Date
 C:\Users\cinth\Source\Repos\My-Journal-web\My Journal\My Journal\obj\Debug\net8.0\My Journal.genruntimeconfig.cache
 C:\Users\cinth\Source\Repos\My-Journal-web\My Journal\My Journal\obj\Debug\net8.0\ref\My Journal.dll
@@ -1107,6 +1094,19 @@ C:\Users\MYender\Desktop\My Journal web 3\My Journal\My Journal\obj\Debug\net8.0
 C:\Users\MYender\Desktop\My Journal web 3\My Journal\My Journal\obj\Debug\net8.0\My Journal.pdb
 C:\Users\MYender\Desktop\My Journal web 3\My Journal\My Journal\obj\Debug\net8.0\My Journal.genruntimeconfig.cache
 C:\Users\MYender\Desktop\My Journal web 3\My Journal\My Journal\obj\Debug\net8.0\ref\My Journal.dll
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\appsettings.Development.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\appsettings.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\appsettings.Development.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\appsettings.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\My Journal.deps.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\My Journal.runtimeconfig.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\bin\Debug\net8.0\My Journal.staticwebassets.runtime.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.staticwebassets.runtime.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.exe
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.deps.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.runtimeconfig.json
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.dll
+C:\My-Journal\My Journal\My Journal\bin\Debug\net8.0\My Journal.pdb
 C:\My-Journal-web\My Journal\My Journal\obj\Debug\net8.0\My Journal.csproj.AssemblyReference.cache
 C:\My-Journal-web\My Journal\My Journal\obj\Debug\net8.0\My_Journal.Properties.Resources.resources
 C:\My-Journal-web\My Journal\My Journal\obj\Debug\net8.0\My Journal.csproj.GenerateResource.cache

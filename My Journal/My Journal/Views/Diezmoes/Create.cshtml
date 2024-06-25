@@ -56,52 +56,34 @@
                 
             </div>
 <br />
-        <form class="form" asp-action="Create">
+    <form class="form" asp-action="Create" method="post">
         <div class="form-group row">
-            <h5 class="card-title"><span class="circle_bg_text">2</span>   Listado de Diezmos</h5>
+            <h5 class="card-title"><span class="circle_bg_text">2</span> Listado de Ofrendas</h5>
 
             <table id="example" class="table table-striped table-bordered" style="width:100%">
-
                 <thead>
                     <tr>
-
                         <th>Descripción</th>
                         <th>Cantidad</th>
-                        <th>Fecha</th>
-                        <th></th>
 
+                        <th>Fecha</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-@*                     @foreach (var item in Model)
-                    { *@
-
-                        <tr>
-                          
-                            <td>Descripcion</td>
-                            <td>Cantidad</td>
-                            <td>Fecha</td>
-
-                            <td>
-
-                                <a class="btn launch" > <i class="fa fa-trash" aria-hidden="true"></i></a>
-                            </td>
-                        </tr>
-
-@*                     }
- *@                </tbody>
-
+                    <!-- Aquí se añadirán las filas dinámicamente -->
+                </tbody>
             </table>
             <div class="card-footer">
                 <div class="row">
                     <div class="col-lg-6">
-                        <button type="submit" value="Create" class="btn btn-success mr-2">Agregar</button>
+                        <button type="submit" value="Create" class="btn btn-success mr-2">Guardar</button>
                         <button asp-action="Index" class="btn btn-secondary">Cancelar</button>
                     </div>
                 </div>
             </div>
         </div>
-        </form>
+    </form>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
